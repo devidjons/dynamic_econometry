@@ -54,7 +54,7 @@ get_A=function()
     }
     n=length(x)
     
-    lm(x[-1]~x[-n])$coefficients[2]
+    lm(x[-1]~x[-n]+0)$coefficients[1]
 }
 
 A_sample=sapply(1:sample_N, function(x) get_A())
