@@ -1,9 +1,17 @@
+###################
+#generate process
+# y_t=m+b*t+ksi_t
+# where
+# ksi_t=phi*ksi_(t-1)+eps
+#####################
+
+
 #hyper parameters
-N=1000
+N=500
 ksi=0
-phi=0.9
-m=0.5
-beta=0.7
+phi=0.999
+m=1
+beta=0.01
 #
 for(i in 2:N)
 {
@@ -12,3 +20,5 @@ for(i in 2:N)
 t=1:N
 
 y=m+beta*t+ksi
+plot(t,y, type="l")
+abline(m,beta)
