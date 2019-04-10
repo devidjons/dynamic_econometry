@@ -9,9 +9,9 @@
 #hyper parameters
 N=500
 ksi=0
-phi=0.999
+phi=0.9
 m=1
-beta=0.01
+beta=0.2
 #
 for(i in 2:N)
 {
