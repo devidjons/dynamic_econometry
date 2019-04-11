@@ -9,7 +9,7 @@
 #hyper parameters
 N=500
 ksi=0
-phi=0.9
+phi=1
 m=1
 beta=0.2
 #
