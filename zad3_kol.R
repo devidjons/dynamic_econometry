@@ -1,0 +1,35 @@
+library(openxlsx)
+
+#zad 3
+
+N=50+1*20
+samp_size=100
+alpha=0.95
+
+gen_process=function()
+{
+    y=0
+    for (i in 2:N)
+    {
+        y[i]=y[i-1]+rnorm(1)
+    }
+    return(y)
+}
+
+
+get_t_stat=function()
+{
+    y=gen_process()
+    x=lag(y)[-1]
+    dy=diff(y)
+    model1=lm(dy~x-1)
+    return(summary(model1)$coefficients[3])
+}
+
+t_sample=sapply(1:samp_size, function(x) get_t_stat())
+answer=t_sample[round((1-alpha)*samp_size)]
+
+print(paste("critic value =", answer))
+
+#end zad 3
+
