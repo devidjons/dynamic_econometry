@@ -1,5 +1,6 @@
 library(openxlsx)
 library(CADFtest)
+library(dplyr)
 data=read.xlsx("gr1.xlsx", sheet=3, startRow = 2)
 head(data)
 wig20=data[,c(1,5)]

@@ -3,6 +3,7 @@ library(openxlsx)
 #zad 3
 
 N=50+1*20
+sigma=0.8
 samp_size=10000
 alpha=0.05
 
@@ -11,7 +12,7 @@ gen_process=function()
     y=0
     for (i in 2:N)
     {
-        y[i]=y[i-1]+rnorm(1,0,0.1)
+        y[i]=y[i-1]+rnorm(1,0,sigma)
     }
     return(y)
 }
@@ -28,8 +29,7 @@ get_t_stat=function()
 }
 
 t_sample=sapply(1:samp_size, function(x) get_t_stat())
-answer=t_sample[round((1-alpha)*samp_size)]
-
+answer=quantile(t_sample, 1-alpha)
 print(paste("critic value =", answer))
 
 #end zad 3
